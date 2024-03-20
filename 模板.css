@@ -1,0 +1,414 @@
+/* 全局設置 */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #ffffff;
+    /* 背景顏色 */
+    margin: 0;
+    /* 清除預設邊距 */
+    overflow: auto;
+    /* 隱藏滾動條 */
+
+}
+
+/* 頁首樣式 */
+header {
+    background-color: rgb(18, 53, 57);
+    /* 背景顏色 */
+    color: white;
+    /* 文字顏色 */
+    padding: 20px 0;
+    /* 上下內邊距 */
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 2;
+    /* 將z-index增加到比其他元素更高 */
+}
+
+/* 頁首容器 */
+.header-container {
+    display: flex;
+    /* 使用 flexbox 佈局 */
+    align-items: center;
+    /* 垂直居中對齊 */
+    justify-content: space-between;
+    /* 水平對齊 */
+    padding: 0 20px;
+    /* 左右內邊距 */
+}
+
+
+
+
+/* 標題樣式 */
+h1 {
+    margin: 0;
+    /* 清除預設邊距 */
+}
+
+/* 導航樣式 */
+nav ul {
+    padding: 0;
+    /* 清除內邊距 */
+    list-style: none;
+    /* 清除列表樣式 */
+    display: flex;
+    /* 使用 flexbox 佈局 */
+}
+
+nav li {
+    margin: 0 10px;
+    /* 左右外邊距 */
+}
+
+.nav a {
+    color: white;
+    /* 文字顏色 */
+    text-decoration: none;
+    /* 清除下劃線 */
+    padding: 10px 15px;
+    /* 上下左右內邊距 */
+    border-radius: 5px;
+    /* 圓角 */
+    background-color: rgb(10, 67, 71);
+    /* 背景顏色 */
+    transition: background-color 0.3s;
+    /* 轉場效果 */
+}
+
+/* 滑鼠懸停、點擊和焦點狀態下的連結樣式 */
+.nav a:hover,
+.nav a:active,
+.nav a:focus {
+    background-color: #777;
+    /* 較暗的背景顏色 */
+}
+
+@media screen and (max-width: 768px) {
+    nav ul {
+        flex-direction: column;
+        /* 在螢幕寬度小於768px時，切換為垂直排列 */
+    }
+
+    nav li {
+        margin: 10px 0;
+        /* 增加上下外邊距 */
+    }
+}
+
+
+
+.main-content {
+    flex: 1;
+    /* 自動填滿剩餘空間 */
+    padding: 20px;
+    /* 內邊距 */
+
+}
+
+/* 頁腳樣式 */
+/* 原始 footer 樣式 */
+footer {
+    background-color: rgb(18, 53, 57);
+    color: white;
+    padding: 10px 0;
+    text-align: center;
+    display: flex;
+    justify-content: space-around;
+
+}
+
+footer table {
+    border-collapse: collapse;
+    width: 66%;
+    display: flex;
+    justify-content: space-around;
+    margin-right: 33%;
+    max-width: 100%;
+    margin-bottom: auto;
+    margin-top: 10px;
+}
+
+footer th {
+    text-align: left;
+    padding: 16px;
+    font-size: 20px;
+    width: 50px;
+    color: #686868;
+}
+
+footer td {
+    text-align: left;
+    padding: 16px;
+    width: 450px;
+    color: #30ff02;
+}
+
+/* 添加媒體查詢以實現響應式功能 */
+@media screen and (max-width: 768px) {
+    footer {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    footer table {
+        width: 90%;
+        margin-right: auto;
+        margin-left: auto;
+    }
+
+    footer th,
+    footer td {
+        width: auto;
+        padding: 10px;
+        font-size: 16px;
+    }
+}
+
+
+/* 頂部圖片 */
+
+
+
+
+/* 過廠動畫 */
+@keyframes leap {
+    50% {
+        transform: rotate(180deg);
+        /* 設定旋轉動畫 */
+
+    }
+
+    100% {
+        transform: rotate(180deg);
+        /* 設定旋轉動畫 */
+    }
+
+}
+
+@keyframes slide {
+    22% {
+        transform: translateX(-30px);
+        /* 設定水平移動動畫 */
+    }
+
+    28% {
+        transform: translateX(-30px);
+        /* 設定水平移動動畫 */
+    }
+
+    50% {
+        transform: translateX(0);
+        /* 設定水平移動動畫 */
+    }
+
+    55% {
+        transform: translateX(7px, 3px);
+        /* 設定水平移動動畫 */
+    }
+
+    60% {
+        transform: translateX(14px, 0);
+        /* 設定水平移動動畫 */
+    }
+
+    100% {
+        transform: translateX(70px);
+        /* 設定水平移動動畫 */
+    }
+}
+
+.loader-container {
+    position: fixed;
+    /* 固定定位 */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgb(18, 53, 57);
+    /* 背景顏色 */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 9999;
+    /* 設定z-index以確保加載動畫位於最前面 */
+}
+
+.loader {
+    display: flex;
+    /* 使用flex佈局 */
+    align-items: end;
+    /* 垂直底部對齊 */
+    justify-content: space-between;
+    /* 平均分佈空間 */
+    width: 90px;
+    /* 設定寬度 */
+}
+
+.dot {
+    position: absolute;
+    width: 100px;
+    height: 20px;
+    transform-origin: center;
+    animation: leap 2s infinite;
+    animation-timing-function: cubic-bezier(.3, .67, .7, .33);
+}
+
+.dot span {
+    display: block;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background-color: #ffffff;
+    animation: slide 2s infinite linear;
+}
+
+.dot:nth-child(2),
+.dot:nth-child(2) span {
+    animation-delay: 0.45s;
+}
+
+.dot:nth-child(3),
+.dot:nth-child(3) span {
+    animation-delay: 0.9s;
+}
+
+
+.content {
+    display: none;
+    /* 預設隱藏內容 */
+}
+
+
+
+/* 面包屑导航 */
+ul.breadcrumb {
+    padding: 20px 7px;
+    list-style: none;
+    background-color: #ffffff;
+    margin-left: 40px;
+    padding-top: 100px;
+
+}
+
+/* 将列表项并排显示 */
+ul.breadcrumb li {
+    display: inline;
+    font-size: 18px;
+}
+
+/* 在每个列表项前后添加斜杠符号 (/) */
+ul.breadcrumb li+li:before {
+    padding: 8px;
+    color: black;
+    content: "/\00a0";
+}
+
+/* 为列表内的所有链接添加颜色 */
+ul.breadcrumb li a {
+    color: #107b3e;
+    text-decoration: none;
+}
+
+/* 悬停时添加颜色 */
+ul.breadcrumb li a:hover {
+    color: #01447e;
+    text-decoration: underline;
+}
+
+
+
+
+/* 滾動條 */
+.header {
+    position: fixed;
+    top: 140px;
+    z-index: 1;
+    width: 100%;
+    background-color: #454545;
+}
+
+.progress-container {
+    /* 离顶部的距离，根据您的header高度调整 */
+    z-index: 1;
+    /* 确保在其他元素之上 */
+    width: 100%;
+    height: 12px;
+    background: #56a200;
+}
+
+.progress-bar {
+    height: 12px;
+    background: #454545;
+    width: 0%;
+}
+
+
+/* 響應式設置 - 在螢幕小於 800px 時讓兩列佔據一半寬度 */
+@media screen and (max-width: 800px) {
+    .column {
+        flex: 50%;
+        max-width: 50%;
+    }
+}
+
+/* 響應式設置 - 在螢幕小於 600px 時將兩列疊加在一起 */
+@media screen and (max-width: 600px) {
+    .column {
+        flex: 100%;
+        max-width: 100%;
+    }
+}
+
+/* icon */
+.icon-container {
+    position: fixed;
+    top: 50%;
+    right: 10px;
+    transform: translateY(-50%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.icon-container .fa {
+    padding: 10px;
+    /* 調整圖標的 padding */
+    font-size: 30px;
+    height: 30px;
+    width: 30px;
+    /* 保持適當的圖標寬度 */
+    text-align: center;
+    text-decoration: none;
+    margin: 5px 2px;
+    border-radius: 50%;
+    /* 如果需要，保留圖標的圓角設置 */
+}
+
+
+
+.fa:hover {
+    opacity: 0.7;
+}
+
+.fa-instagram {
+    background: #125688;
+    color: white;
+
+}
+
+.fa-pinterest {
+    background: #cb2027;
+    color: white;
+}
+
+.fa-facebook {
+    background: #3B5998;
+    color: white;
+}
+
+body {
+    font-family: "Noto Serif TC", serif;
+    font-weight: 400;
+    font-style: normal;
+}

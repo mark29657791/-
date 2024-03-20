@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <!-- 設定文件的字符編碼為UTF-8 -->
+  <meta charset="UTF-8">
+  <!-- 讓瀏覽器以響應式方式呈現內容 -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <!-- 設定網頁標題 -->
+  <title>會員登入</title>
+  <style>
+    /* CSS樣式開始 */
+    /* icon */
+    .icon-container {
+      position: fixed;
+      top: 50%;
+      right: 10px;
+      transform: translateY(-50%);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .icon-container .fa {
+      padding: 10px;
+      /* 調整圖標的 padding */
+      font-size: 30px;
+      height: 50px;
+      width: 50px;
+      /* 保持適當的圖標寬度 */
+      text-align: center;
+      text-decoration: none;
+      margin: 5px 2px;
+      border-radius: 50%;
+      /* 如果需要，保留圖標的圓角設置 */
+    }
+
+
+
+    .fa:hover {
+      opacity: 0.7;
+    }
+
+    .fa-instagram {
+      background: #125688;
+      color: white;
+    }
+
+    .fa-pinterest {
+      background: #cb2027;
+      color: white;
+    }
+
+    .fa-facebook {
+      background: #3B5998;
+      color: white;
+    }
+
+    /* 使body和html元素高度佔滿整個視窗 */
+    body,
+    html {
+      height: 100%;
+      margin: 0;
+      font-family: Arial, Helvetica, sans-serif;
+    }
+
+    /* 這裡使用了通用選擇器*，表示所有元素的框模型都採用邊框內盒模型 */
+    * {
+      box-sizing: border-box;
+    }
+
+    /* 定義背景圖片的樣式 */
+    .bg-image {
+      height: 50%;
+      /* 高度佔50% */
+      background-position: center;
+      /* 圖片置中 */
+      background-repeat: no-repeat;
+      /* 不重複背景 */
+      background-size: cover;
+      /* 圖片完全覆蓋容器 */
+    }
+
+    /* 不同背景圖片的類別 */
+    .img1 {
+      background-image: url("./img/會員/a.jpg");
+    }
+
+    .img2 {
+      background-image: url("./img/會員/b.jpg");
+    }
+
+    .img3 {
+      background-image: url("./img/會員/c.jpg");
+    }
+
+    .img4 {
+      background-image: url("./img/會員/d.jpg");
+    }
+
+    .img5 {
+      background-image: url("./img/會員/e.jpg");
+    }
+
+    .img6 {
+      background-image: url("./img/會員/f.jpg");
+    }
+
+    /* 登入表單的樣式 */
+    .login-form {
+      background-color: rgba(0, 0, 0, 0.7);
+      /* 半透明黑色背景 */
+      color: white;
+      /* 文字顏色 */
+      font-size: 14px;
+      border: 3px solid hsl(0, 0%, 100%);
+      /* 白色邊框 */
+      border-radius: 10px;
+      /* 圓角邊框 */
+      position: fixed;
+      /* 固定定位 */
+      top: 50%;
+      /* 距離頂部50% */
+      left: 50%;
+      /* 距離左邊50% */
+      transform: translate(-50%, -50%);
+      /* 水平和垂直置中 */
+      z-index: 2;
+      /* 避免被其他元素覆蓋 */
+      width: 300px;
+      /* 寬度 */
+      padding: 20px;
+      /* 內邊距 */
+      text-align: center;
+      /* 文字置中 */
+      box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+      /* 添加陰影效果 */
+    }
+
+    /* 登入表單中的輸入欄位樣式 */
+    .login-form input[type="text"],
+    .login-form input[type="password"],
+    .login-form input[type="submit"] {
+      width: 100%;
+      /* 寬度100% */
+      padding: 10px;
+      /* 內邊距 */
+      margin: 5px 0;
+      /* 外邊距 */
+      box-sizing: border-box;
+      /* 使用邊框內盒模型 */
+      border: 2px solid #fff;
+      /* 白色邊框 */
+      background-color: rgba(255, 255, 255, 0.1);
+      /* 半透明白色背景 */
+      color: white;
+      /* 文字顏色 */
+      border-radius: 5px;
+      /* 圓角邊框 */
+    }
+
+    /* 登入按鈕樣式 */
+    .login-form input[type="submit"] {
+      background-color: #4CAF50;
+      /* 綠色背景 */
+      color: white;
+      /* 文字顏色 */
+      cursor: pointer;
+      /* 鼠標樣式 */
+    }
+
+    /* 登入按鈕懸停時的樣式 */
+    .login-form input[type="submit"]:hover {
+      background-color: #45a049;
+      /* 深綠色背景 */
+    }
+
+    /* 註冊連結樣式 */
+    .register-link {
+      color: white;
+      /* 文字顏色 */
+      text-decoration: none;
+      /* 文字下劃線 */
+      margin-top: 10px;
+      /* 上邊距 */
+      display: inline-block;
+      /* 行內塊元素 */
+    }
+
+    /* 註冊連結懸停時的樣式 */
+    .register-link:hover {
+      text-decoration: underline;
+      /* 懸停時加下劃線 */
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- 背景圖片 -->
+  <div class="bg-image img1"></div>
+  <div class="bg-image img2"></div>
+  <div class="bg-image img3"></div>
+  <div class="bg-image img4"></div>
+  <div class="bg-image img5"></div>
+  <div class="bg-image img6"></div>
+  <!-- icon -->
+  <div class="icon-container">
+    <a href="https://www.facebook.com/" class="fa fa-facebook"></a>
+    <a href="https://www.instagram.com/" class="fa fa-instagram"></a>
+    <a href="https://www.pinterest.com/" class="fa fa-pinterest"></a>
+  </div>
+  <!-- 登入表單 -->
+  <div class="login-form">
+    <h2>會員登入</h2>
+    <form>
+      <label for="username">使用者名稱：</label><br>
+      <input type="text" id="username" name="username"><br>
+      <label for="password">密碼：</label><br>
+      <input type="password" id="password" name="password"><br><br>
+      <a href="index.html"
+        style="color: white;background-color: #4CAF50;padding: 5px;border-radius: 2px;text-decoration: none;">會員登入</a>
+    </form>
+    <a href="註冊.html" class="register-link">還沒有帳號？點擊這裡註冊</a>
+  </div>
+
+</body>
+
+</html>

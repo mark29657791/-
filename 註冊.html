@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html>
+<style>
+  body {
+    font-family: Arial, Helvetica, sans-serif;
+  }
+
+  * {
+    box-sizing: border-box
+  }
+
+  /* 全寬度輸入欄位 */
+  input[type=text],
+  input[type=password] {
+    width: 100%;
+    padding: 15px;
+    margin: 5px 0 22px 0;
+    display: inline-block;
+    border: none;
+    background: #f1f1f1;
+  }
+
+  input[type=text]:focus,
+  input[type=password]:focus {
+    background-color: #ddd;
+    outline: none;
+  }
+
+  hr {
+    border: 1px solid #f1f1f1;
+    margin-bottom: 25px;
+  }
+
+  /* 所有按鈕的樣式 */
+  button {
+    background-color: #04AA6D;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+    opacity: 0.9;
+  }
+
+  button:hover {
+    opacity: 1;
+  }
+
+  /* 取消按鈕的額外樣式 */
+  .cancelbtn {
+    padding: 14px 20px;
+    background-color: #f44336;
+  }
+
+  /* 浮動取消和註冊按鈕，並設置相等的寬度 */
+  .cancelbtn,
+  .signupbtn {
+    float: left;
+    width: 50%;
+  }
+
+  /* 添加內容元素的填充 */
+  .container {
+    padding: 16px;
+  }
+
+  /* 清除浮動 */
+  .clearfix::after {
+    content: "";
+    clear: both;
+    display: table;
+  }
+
+  /* 在超小屏幕上更改取消按鈕和註冊按鈕的樣式 */
+  @media screen and (max-width: 300px) {
+
+    .cancelbtn,
+    .signupbtn {
+      width: 100%;
+    }
+  }
+</style>
+
+<body>
+
+  <form action="/action_page.php" style="border:1px solid #ccc">
+    <div class="container">
+      <h1>註冊</h1>
+      <p>請填寫此表格以創建帳戶。</p>
+      <hr>
+
+      <label for="email"><b>電子郵件</b></label>
+      <input type="text" placeholder="輸入電子郵件" name="email" required>
+
+      <label for="psw"><b>密碼</b></label>
+      <input type="password" placeholder="輸入密碼" name="psw" required>
+
+      <label for="psw-repeat"><b>重複密碼</b></label>
+      <input type="password" placeholder="重複輸入密碼" name="psw-repeat" required>
+
+      <label>
+        <input type="checkbox" checked="checked" name="remember" style="margin-bottom:15px"> 記住我
+      </label>
+
+      <p>創建帳戶即表示您同意我們的 <a href="#" style="color:dodgerblue">條款和隱私政策</a>。</p>
+
+      <div class="clearfix">
+        <button type="button" class="cancelbtn" onclick="cancelFunction()">取消</button>
+        <button type="submit" class="signupbtn" onclick="submitFunction()">註冊</button>
+      </div>
+    </div>
+  </form>
+  <script>
+    function cancelFunction() {
+      // 在這裡添加取消按鈕的功能代碼
+      window.location.href = "會員登入.html";
+    }
+
+    function submitFunction() {
+      // 在這裡添加註冊按鈕的功能代碼
+      window.location.href = "index.html  ";
+    }
+
+  </script>
+
+</body>
+
+</html>

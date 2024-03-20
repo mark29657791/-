@@ -1,0 +1,590 @@
+<!DOCTYPE html>
+<html lang="zh">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <title>服務</title>
+    <link rel="stylesheet" href="模板.css">
+    <style>
+        * {
+            font-family: "Noto Serif TC", serif;
+            font-weight: 400;
+            font-style: normal;
+        }
+
+        .dropdown {
+            position: relative;
+            display: inline-block;
+        }
+
+        .dropbtn {
+            background-color: #1a7d4a;
+            color: white;
+            padding: 16px;
+            font-size: 16px;
+            border: none;
+            cursor: pointer;
+        }
+
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: #f9f9f9;
+            min-width: 160px;
+            box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+            z-index: 1;
+        }
+
+        .dropdown-content a {
+            color: black;
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+        }
+
+        .dropdown-content a:hover {
+            background-color: #f1f1f1;
+        }
+
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+
+        .dropdown:hover .dropbtn {
+            background-color: #3e8e41;
+        }
+
+        .ll {
+            text-align: center;
+        }
+
+        .ll img {
+            display: inline-block;
+        }
+
+        /* 側邊 */
+        /* 左側導航欄樣式 */
+        .sidenav {
+            width: 180px;
+            /* 寬度 */
+            position: fixed;
+            /* 固定定位 */
+            z-index: 1;
+            /* z軸索引，用於控制疊加順序 */
+            top: 300px;
+            /* 距離頂部的距離 */
+            left: 10px;
+            /* 距離左側的距離 */
+            background: #128a72;
+            /* 背景顏色 */
+            overflow-x: hidden;
+            /* 橫向溢出隱藏 */
+            padding: 8px 0;
+            /* 內邊距 */
+            border-radius: 15px;
+            margin-left: 20px;
+        }
+
+        /* 導航連結樣式 */
+        .sidenav a {
+            padding: 6px 8px 6px 16px;
+            /* 內邊距 */
+            text-decoration: none;
+            /* 文本去除下劃線 */
+            font-size: 20px;
+            /* 字體大小 */
+            color: #ffffff;
+            /* 文本顏色 */
+            display: block;
+            /* 块級元素顯示 */
+        }
+
+        /* 滑鼠懸停在導航連結上的樣式 */
+        .sidenav a:hover {
+            color: #000000;
+            /* 滑鼠懸停時的文本顏色 */
+        }
+
+
+        /* 購物車外框樣式 */
+        .cart {
+            display: none;
+            margin-left: 1500px;
+            padding: 10px;
+            background-color: #f9f9f9;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            width: 300px;
+            /* 調整購物車寬度 */
+        }
+
+        .cart h2 {
+            margin-top: 0;
+            font-size: 24px;
+            /* 調整標題字體大小 */
+            text-align: center;
+            /* 將標題置中 */
+        }
+
+        #cart-content {
+            list-style-type: none;
+            padding: 0;
+            text-align: center;
+            /* 將內容置中 */
+        }
+
+        #cart-content li {
+            margin-bottom: 5px;
+            font-size: 20px;
+            /* 調整內容字體大小 */
+        }
+
+        /* 移除按鈕樣式 */
+        #cart-content li button {
+            background-color: #f44336;
+            color: white;
+            border: none;
+            padding: 5px 10px;
+            border-radius: 3px;
+            cursor: pointer;
+            font-size: 20px;
+        }
+
+        #cart-content li button:hover {
+            background-color: #d32f2f;
+        }
+
+        /* 預約 */
+
+        ul {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        /* Body styles */
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        /* Month header */
+        .month {
+            padding: 20px 0;
+            width: 600px;
+            height: 50px;
+            background-color: #128a72;
+            text-align: center;
+            color: white;
+            border-top-left-radius: 5px;
+            border-top-right-radius: 5px;
+        }
+
+        .month ul {
+            padding: 0;
+        }
+
+        .month ul li {
+            display: inline-block;
+            font-size: 20px;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            cursor: pointer;
+            font-weight: bold;
+        }
+
+        /* Arrow buttons */
+        .month .prev,
+        .month .next {
+            font-size: 24px;
+            margin: 0 10px;
+            cursor: pointer;
+        }
+
+        /* Weekdays */
+        .weekdays {
+            padding: 10px 0;
+            background-color: #ddd;
+            width: 600px;
+        }
+
+        .weekdays li {
+            display: inline-block;
+            width: 13.6%;
+            color: #666;
+            text-align: center;
+            font-size: 18px;
+        }
+
+        /* Days */
+        .days {
+            padding: 10px 0;
+            background-color: #eee;
+            margin: 0;
+
+            width: 600px;
+            border-bottom-left-radius: 5px;
+            border-bottom-right-radius: 5px;
+        }
+
+        .days li {
+            display: inline-block;
+            width: 13.6%;
+            text-align: center;
+            margin-bottom: 5px;
+            font-size: 20px;
+            color: #777;
+            cursor: pointer;
+        }
+
+        /* Highlight the "current" day */
+        .days li.active {
+            padding: 5px;
+            background: rgb(10, 67, 71);
+            color: white !important;
+            border-radius: 50%;
+        }
+
+        /* 加載動畫樣式 */
+        body {
+            overflow: auto;
+            /* 隱藏滾動條 */
+        }
+
+
+
+                /* 進度條樣式 */
+                .header {
+    position: fixed;
+    top: 140px;
+    z-index: 1;
+    width: 100%;
+    background-color: #f1f1f1;
+}
+
+.progress-container {
+    /* 离顶部的距离，根据您的header高度调整 */
+    z-index: 1;
+    /* 确保在其他元素之上 */
+    width: 100%;
+    height: 12px;
+    background: #56a200;
+}
+
+.progress-bar {
+    height: 12px;
+    background: #454545;
+    width: 0%;
+}
+    </style>
+</head>
+
+<body>
+    <header>
+        <div class="header-container">
+            <a href="index.html">
+                <img src="img/LOGO2.png" alt="LOGO" height="100px">
+            </a>
+            <nav>
+                <ul class="nav" style="font-size: 20px;">
+                    <li><a href="#" onclick="redirectToPage('index.html')">MELODGUIDE工作室</a></li>
+                    <!-- 導航連結 -->
+                    <li><a href="#" onclick="redirectToPage('about.html')">關於工作室</a></li>
+                    <!-- 導航連結 -->
+                    <li><a href="#" onclick="redirectToPage('services.html')">錄音室製作租借服務</a></li>
+                    <!-- 導航連結 -->
+                    <li><a href="#" onclick="redirectToPage('會員登入.html')">會員專區</a></li>
+                    <!-- 導航連結 -->
+                </ul>
+            </nav>
+        </div>
+    </header>
+    <div id="loader-container" class="loader-container">
+        <div class="loader">
+            <div class="dot"><span></span></div>
+            <div class="dot"><span></span></div>
+            <div class="dot"><span></span></div>
+        </div>
+    </div>
+
+    <div id="content">
+
+        <!-- 滾動條 -->
+        <div class="header">
+            <div class="progress-container">
+                <div class="progress-bar" id="myBar"></div>
+            </div>
+        </div>
+        <!-- 滾動條 end-->
+        <div class="icon-container">
+            <a href="https://www.facebook.com/" class="fa fa-facebook"></a>
+            <a href="https://www.instagram.com/" class="fa fa-instagram"></a>
+            <a href="https://www.pinterest.com/" class="fa fa-pinterest"></a>
+        </div>
+        <ul class="breadcrumb" style="position: fixed; top: 100px; left: 20px;width: 100%; background-color: #fff;">
+            <li><a href="index.html">首頁</a></li>
+            <li><a href="services.html">所有服務</a></li>
+            <li><a href="services 錄音.html">錄音室製作租借服務</a></li>
+            <li><a href="#">立即預約</a></li>
+        </ul>
+
+        <!-- 側邊 -->
+        <div class="sidenav">
+            <a href="services 錄音.html">錄音室預定</a>
+            <a href="services 常客.html">常客方案</a>
+            <a href="services podcast.html">Podcast製作服務</a>
+            <a href="services.html">所有服務</a>
+        </div>
+
+        <!-- 主要內容區域 -->
+        <div class="main">
+            <div class="ll"
+                style="width: 30%; padding: 20px;margin-top: 300px;   margin-left: 400px; border: 1px solid #ccc; box-shadow: 2px 2px 5px rgba(0,0,0,0.1);">
+                <img src="./img/服務/myedit_ai_image_0316003148.jpg" alt="" style="width: 500px;">
+            </div>
+
+            <div class="rr" style="margin-left: 1100px; width: 500px;margin-top: -450px;">
+                <h1 style="font-size: 50px;">鄉村風|最多4人錄音</h1>
+                <br>
+                <h2>NT500-1小時</h2>
+                <p style="font-size: 28px;">鄉村音樂
+                    <br>
+                    <br>
+                    在遠離喧囂的鄉村裡，清晨的第一縷陽光穿過樹林，映照在翠綠的田野上。
+                    <br>
+                    <br>
+                    晨露如珍珠般晶瑩，牛羊在草地上悠閒地覓食，鳥兒在樹梢間嬉戲歌唱。
+                    <br>
+                    <br>
+                    在這裡，你可以大方做自己，感受日常每一個美好的瞬間。
+                    <br>
+                    <br>
+                    這裡的生活簡單而寧靜
+                    <br>
+                    <br>
+                    ，每個人都彷彿與大自然融為一體，享受著恬靜的時光。
+                    <br>
+
+                </p>
+            </div>
+            <br>
+            <br>
+            <div class="calendar-box" style="margin-left: 1100px;">
+                <div style="font-size: 24px; width: 600px;">預約錄音時間 *請多幫自己預訂半小時
+                    <br>
+                    每個預訂之間並不會預留空擋，因此請在預定時間內完成所有錄製工作，建議前後各預留15-20分鐘，處理傳輸錄音檔案、攝影裝置架設、場佈、場復以及其他可能需要預留的時間，避免影響節目錄製及影響接下來的使用者。
+                </div>
+                <!-- 選擇時間 -->
+                <div class="dropdown" style="width: 200px; font-size: 24px;">
+                    <button class="dropbtn" id="dropdownButton"
+                        style="margin: 20px 0 20px 0; border-radius: 2px;font-size: 24px;">選擇一個時段</button>
+                    <div class="dropdown-content">
+                        <a href="#" onclick="replaceText(this)">半小時</a>
+                        <a href="#" onclick="replaceText(this)">一個小時</a>
+                        <a href="#" onclick="replaceText(this)">兩個小時</a>
+                    </div>
+                </div>
+                <div class="month">
+                    <ul>
+                        <li class="prev" onclick="prevMonth()">&#10094;</li>
+                        <li class="next" onclick="nextMonth()">&#10095;</li>
+                        <li id="month-year"></li>
+                    </ul>
+                </div>
+
+                <ul class="weekdays">
+                    <li>一</li>
+                    <li>二</li>
+                    <li>三</li>
+                    <li>四</li>
+                    <li>五</li>
+                    <li>六</li>
+                    <li>日</li>
+                </ul>
+
+                <ul id="days" class="days">
+                </ul>
+
+                <button onclick="viewCart()" style="font-size: 18px; margin: 20px 0 20px 0;">查看購物車</button>
+            </div>
+
+            <div id="cart" class="cart" style="margin-left: 1100px; margin-bottom: 20px;">
+                <h2>購物車</h2>
+                <ul id="cart-content">
+                </ul>
+            </div>
+        </div>
+        <div style="margin-left: 400px;">
+            <h1 style="font-size: 42px;">注意事項</h1>
+            <h4 style="font-size: 28px;">預訂與取消政策：</h4>
+            <p style="font-size: 20px;">確保您了解錄音室的預訂和取消政策。這可能包括提前預訂時間、取消費用以及是否可以獲得退款。</p>
+            <h4 style="font-size: 28px;">價格和付款方式：</h4>
+            <p style="font-size: 20px;">確認租借費用以及支付方式。了解是否需要提前支付訂金或全額款項，以及接受的付款方式（現金、信用卡、轉帳等）。</p>
+            <h4 style="font-size: 28px;">時間限制：</h4>
+            <p style="font-size: 20px;">確認您的租借時間，包括開始和結束時間。了解是否有最小租借時間限制或是否可以延長租借時間，以及相應的費用。</p>
+            <h4 style="font-size: 28px;">設備和設施使用：</h4>
+            <p style="font-size: 20px;">了解錄音室提供的設備和設施，以及您可以使用的範圍。確保您知道如何正確使用錄音設備，並遵守相關的使用規定。</p>
+            <h4 style="font-size: 28px;">附加費用：</h4>
+            <p style="font-size: 20px;">確認是否有額外的附加費用，例如清潔費、設備損壞費用或超時費用。了解這些費用的收費標準和條件。</p>
+            <h4 style="font-size: 28px;">保險和責任：</h4>
+            <p style="font-size: 20px;">確保您了解錄音室的保險覆蓋範圍，以及您在租借期間的責任。某些錄音室可能要求您購買額外的保險或承擔特定的責任。</p>
+            <h4 style="font-size: 28px;">安全和監管：</h4>
+            <p style="font-size: 20px;">遵守錄音室的安全規定，並確保您知道緊急情況應該如何應對。避免在未經監管的情況下操作設備，以避免意外發生。</p>
+            <h4 style="font-size: 28px;">隱私和版權：</h4>
+            <p style="font-size: 20px;">尊重他人的隱私權和版權，並確保您在錄音室中的活動不侵犯他人的權利。避免未經授權地錄製他人的作品或使用未經授權的音樂素材。</p>
+            <h4 style="font-size: 28px;">清潔和維護：</h4>
+            <p style="font-size: 20px;"> 在租借結束時確保您將錄音室保持清潔整潔。遵守錄音室的清潔規定，並確保您將設備歸還到原始狀態。</p>
+            <h4 style="font-size: 28px;">溝通和協商：</h4>
+            <p style="font-size: 20px;">如有任何問題或需求，及時與錄音室管理員溝通。協商任何特殊要求或安排，以確保您的租借體驗愉快順利。</p>
+        </div>
+    </div>
+
+
+
+
+    <!-- 頁腳 -->
+    <footer style="text-align: center; display: flex; justify-content: center;margin-top: 900px; ">
+        <div style="width: 50%; margin-right: 10px;">
+            <table style="width: 100%; border-collapse: collapse;  font-size: 20px;">
+                <tr>
+                    <th style="padding: 10px; color: #ffffff;">MELODGUIDE工作室</th>
+                    <th style="padding: 10px; color: #ffffff;">聯絡我們</th>
+                </tr>
+                <tr>
+                    <td style="padding: 10px; color: #d8d8d8;">Podcast 錄音 | 空間租借 </td>
+                    <td style="padding: 10px; color: #d8d8d8;">錄音 / 錄影 / 直播 / 拍攝 / 開會</td>
+                </tr>
+                <tr>
+                    <td style="padding: 10px; color: #d8d8d8;">MicMind Studio訂單查詢購物車</td>
+                    <td style="padding: 10px; color: #d8d8d8;">acsca123@gmail.com</td>
+                </tr>
+                <tr>
+                    <td style="padding: 10px; color: #d8d8d8;">09123456789</td>
+                    <td style="padding: 10px; color: #d8d8d8;">110台北市信義區信義路五段7號89樓</td>
+                </tr>
+            </table>
+        </div>
+
+        <div style="width: 30%;">
+            <iframe style="width: 100%; height: 300px;"
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d4554.720393956233!2d121.56220820197369!3d25.03121488768229!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3442abb6e9d93249%3A0xd508f7b3aa02d931!2z5Y-w5YyXMTAx6KeA5pmv5Y-w!5e0!3m2!1szh-TW!2stw!4v1710725229626!5m2!1szh-TW!2stw"
+                width="400" height="300" style="border:0;" allowfullscreen="" loading="lazy"
+                referrerpolicy="no-referrer-when-downgrade" allowfullscreen>
+            </iframe>
+        </div>
+    </footer>
+
+
+    <script>
+        // 網頁加載完成後執行以下程式碼
+        window.addEventListener('load', function () {
+            // 隱藏加載動畫，顯示內容
+            document.getElementById('loader-container').style.display = 'none';
+            document.getElementById('content').style.display = 'block';
+        });
+
+        // 導航到其他頁面的函數
+        function redirectToPage(url) {
+            // 顯示加載動畫
+            document.getElementById('loader-container').style.display = 'flex';
+            // 導航到其他頁面
+            setTimeout(function () {
+                window.location.href = url;
+            }, 1000); // 動畫持續時間為2秒
+        }
+        // 滾動條
+        document.onscroll = function () {
+            myFunction()
+        };
+
+        function myFunction() {
+            var winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+            var height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+            var scrolled = (winScroll / height) * 100;
+            document.getElementById("myBar").style.width = scrolled + "%";
+        }
+
+
+        // 預約
+        // 導入JavaScript代碼
+        const daysElement = document.getElementById('days');
+        const monthYearElement = document.getElementById('month-year');
+
+        function generateCalendar(year, month) {
+            const firstDay = new Date(year, month, 1);
+            const lastDay = new Date(year, month + 1, 0);
+            const daysInMonth = lastDay.getDate();
+
+            monthYearElement.textContent = new Date(year, month).toLocaleString('default', { month: 'long' }) + ' ' + year;
+
+            let html = '';
+            for (let i = 1; i <= daysInMonth; i++) {
+                html += `<li onclick="reserve(${i}, ${month + 1}, ${year})">${i}</li>`;
+            }
+            daysElement.innerHTML = html;
+        }
+
+        function reserve(day, month, year) {
+            alert(`您已選擇 ${year}年/${month}月/${day}日 進行預訂.請到購物車查看`);
+            addToCart({ day, month, year });
+        }
+
+        function prevMonth() {
+            const currentMonth = new Date().getMonth();
+            const currentYear = new Date().getFullYear();
+            generateCalendar(currentYear, currentMonth - 1);
+        }
+
+        function nextMonth() {
+            const currentMonth = new Date().getMonth();
+            const currentYear = new Date().getFullYear();
+            generateCalendar(currentYear, currentMonth + 1);
+        }
+
+        function replaceText(link) {
+            var buttonText = link.textContent;
+            document.getElementById("dropdownButton").textContent = buttonText;
+        }
+
+        // 初始化日曆
+        generateCalendar(new Date().getFullYear(), new Date().getMonth());
+
+        // 購物車功能
+        let cart = [];
+
+        function addToCart(reservation) {
+            cart.push(reservation);
+            updateCartUI();
+        }
+
+        function removeFromCart(index) {
+            cart.splice(index, 1);
+            updateCartUI();
+        }
+
+        function updateCartUI() {
+            const cartContentElement = document.getElementById('cart-content');
+            let html = '';
+            cart.forEach((reservation, index) => {
+                html += `<li>${reservation.year}年/${reservation.month}月/${reservation.day}日 <button onclick="removeFromCart(${index})">刪除</button></li>`;
+            });
+            cartContentElement.innerHTML = html;
+        }
+
+        function viewCart() {
+            const cartElement = document.getElementById('cart');
+            cartElement.style.display = 'block';
+        }
+
+
+    </script>
+</body>
+
+</html>

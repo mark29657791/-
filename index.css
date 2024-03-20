@@ -1,0 +1,844 @@
+/* 全局設置 */
+
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #ffffff;
+    /* 背景顏色 */
+    margin: 0;
+    /* 清除預設邊距 */
+    overflow: auto;
+    /* 隱藏滾動條 */
+    font-family: 'Barcelona';
+
+}
+
+/* 頁首樣式 */
+header {
+    background-color: rgb(18, 53, 57);
+    /* 背景顏色 */
+    color: white;
+    /* 文字顏色 */
+    padding: 20px 0;
+    /* 上下內邊距 */
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 2;
+    /* 將z-index增加到比其他元素更高 */
+}
+
+/* 頁首容器 */
+.header-container {
+    display: flex;
+    /* 使用 flexbox 佈局 */
+    align-items: center;
+    /* 垂直居中對齊 */
+    justify-content: space-between;
+    /* 水平對齊 */
+    padding: 0 20px;
+    /* 左右內邊距 */
+}
+
+/* 標題樣式 */
+h1 {
+    margin: 0;
+    /* 清除預設邊距 */
+}
+
+/* 導航樣式 */
+nav ul {
+    padding: 0;
+    /* 清除內邊距 */
+    list-style: none;
+    /* 清除列表樣式 */
+    display: flex;
+    /* 使用 flexbox 佈局 */
+}
+
+nav li {
+    margin: 0 10px;
+    /* 左右外邊距 */
+}
+
+.nav a {
+    color: white;
+    /* 文字顏色 */
+    text-decoration: none;
+    /* 清除下劃線 */
+    padding: 10px 15px;
+    /* 上下左右內邊距 */
+    border-radius: 5px;
+    /* 圓角 */
+    background-color: rgb(10, 67, 71);
+    /* 背景顏色 */
+    transition: background-color 0.3s;
+    /* 轉場效果 */
+}
+
+/* 滑鼠懸停、點擊和焦點狀態下的連結樣式 */
+.nav a:hover,
+.nav a:active,
+.nav a:focus {
+    background-color: #777;
+    /* 較暗的背景顏色 */
+}
+
+@media screen and (max-width: 768px) {
+    nav ul {
+        flex-direction: column;
+        /* 在螢幕寬度小於768px時，切換為垂直排列 */
+    }
+
+    nav li {
+        margin: 10px 0;
+        /* 增加上下外邊距 */
+    }
+}
+
+
+
+.main-content {
+    flex: 1;
+    /* 自動填滿剩餘空間 */
+    padding: 20px;
+    /* 內邊距 */
+}
+
+/* 頁腳樣式 */
+/* 原始 footer 樣式 */
+footer {
+    background-color: rgb(18, 53, 57);
+    color: white;
+    padding: 10px 0;
+    text-align: center;
+    display: flex;
+    justify-content: space-around;
+}
+
+footer table {
+    border-collapse: collapse;
+    width: 66%;
+    display: flex;
+    justify-content: space-around;
+    margin-right: 33%;
+    max-width: 100%;
+    margin-bottom: auto;
+    margin-top: 10px;
+}
+
+footer th {
+    text-align: left;
+    padding: 16px;
+    font-size: 20px;
+    width: 50px;
+    color: #686868;
+}
+
+footer td {
+    text-align: left;
+    padding: 16px;
+    width: 450px;
+    color: #30ff02;
+}
+
+/* 添加媒體查詢以實現響應式功能 */
+@media screen and (max-width: 768px) {
+    footer {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    footer table {
+        width: 90%;
+        margin-right: auto;
+        margin-left: auto;
+    }
+
+    footer th,
+    footer td {
+        width: auto;
+        padding: 10px;
+        font-size: 16px;
+    }
+}
+
+
+/* 頂部圖片 */
+.hero-image {
+    background-image: linear-gradient(rgb(0, 0, 0), rgb(10, 67, 71));
+    height: 90%;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
+
+}
+
+.hero-text {
+    text-align: center;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: white;
+}
+
+.hero-text button {
+    border: none;
+    outline: 0;
+    display: inline-block;
+    padding: 10px 25px;
+    color: black;
+    background-color: #ddd;
+    text-align: center;
+    cursor: pointer;
+}
+
+.hero-text button:hover {
+    background-color: #555;
+    color: white;
+}
+
+
+
+
+/* 過廠動畫 */
+@keyframes leap {
+    50% {
+        transform: rotate(180deg);
+        /* 設定旋轉動畫 */
+
+    }
+
+    100% {
+        transform: rotate(180deg);
+        /* 設定旋轉動畫 */
+    }
+
+}
+
+@keyframes slide {
+    22% {
+        transform: translateX(-30px);
+        /* 設定水平移動動畫 */
+    }
+
+    28% {
+        transform: translateX(-30px);
+        /* 設定水平移動動畫 */
+    }
+
+    50% {
+        transform: translateX(0);
+        /* 設定水平移動動畫 */
+    }
+
+    55% {
+        transform: translateX(7px, 3px);
+        /* 設定水平移動動畫 */
+    }
+
+    60% {
+        transform: translateX(14px, 0);
+        /* 設定水平移動動畫 */
+    }
+
+    100% {
+        transform: translateX(70px);
+        /* 設定水平移動動畫 */
+    }
+}
+
+.loader-container {
+    position: fixed;
+    /* 固定定位 */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgb(18, 53, 57);
+    /* 背景顏色 */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 9999;
+    /* 設定z-index以確保加載動畫位於最前面 */
+}
+
+.loader {
+    display: flex;
+    /* 使用flex佈局 */
+    align-items: end;
+    /* 垂直底部對齊 */
+    justify-content: space-between;
+    /* 平均分佈空間 */
+    width: 90px;
+    /* 設定寬度 */
+}
+
+.dot {
+    position: absolute;
+    width: 100px;
+    height: 20px;
+    transform-origin: center;
+    animation: leap 2s infinite;
+    animation-timing-function: cubic-bezier(.3, .67, .7, .33);
+}
+
+.dot span {
+    display: block;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background-color: #ffffff;
+    animation: slide 2s infinite linear;
+}
+
+.dot:nth-child(2),
+.dot:nth-child(2) span {
+    animation-delay: 0.45s;
+}
+
+.dot:nth-child(3),
+.dot:nth-child(3) span {
+    animation-delay: 0.9s;
+}
+
+
+.content {
+    display: none;
+    /* 預設隱藏內容 */
+}
+
+/* 面包屑导航 */
+
+
+ul.breadcrumb {
+    padding: 20px 7px;
+    list-style: none;
+    background-color: #eee;
+    margin-left: 40px;
+    padding-top: 200px;
+}
+
+/* 将列表项并排显示 */
+ul.breadcrumb li {
+    display: inline;
+    font-size: 18px;
+}
+
+/* 在每个列表项前后添加斜杠符号 (/) */
+ul.breadcrumb li+li:before {
+    padding: 8px;
+    color: black;
+    content: "/\00a0";
+}
+
+/* 为列表内的所有链接添加颜色 */
+ul.breadcrumb li a {
+    color: #107b3e;
+    text-decoration: none;
+}
+
+/* 悬停时添加颜色 */
+ul.breadcrumb li a:hover {
+    color: #01447e;
+    text-decoration: underline;
+}
+
+
+
+
+/* 滾動條 */
+.header {
+    position: fixed;
+    top: 140px;
+    z-index: 1;
+    width: 100%;
+    background-color: #f1f1f1;
+}
+
+.progress-container {
+    /* 离顶部的距离，根据您的header高度调整 */
+    z-index: 1;
+    /* 确保在其他元素之上 */
+    width: 100%;
+    height: 12px;
+    background: #56a200;
+}
+
+.progress-bar {
+    height: 12px;
+    background: #454545;
+    width: 0%;
+}
+
+
+
+/* 幻燈片容器 */
+.slideshow-container {
+    max-width: 1000px;
+    position: relative;
+    margin: auto;
+
+}
+
+/* 預設隱藏圖片 */
+.mySlides {
+    display: none;
+}
+
+/* 下一張和上一張按鈕 */
+.prev,
+.next {
+    cursor: pointer;
+    position: absolute;
+    top: 50%;
+    width: auto;
+    margin-top: -22px;
+    padding: 16px;
+    color: white;
+    font-weight: bold;
+    font-size: 18px;
+    transition: 0.6s ease;
+    border-radius: 0 3px 3px 0;
+    user-select: none;
+}
+
+/* 將「下一張」按鈕定位到右側 */
+.next {
+    right: 0;
+    border-radius: 3px 0 0 3px;
+}
+
+/* 滑鼠懸停時，加上稍微透明的黑色背景 */
+.prev:hover,
+.next:hover {
+    background-color: rgba(0, 0, 0, 0.8);
+}
+
+/* 標題文字 */
+.text {
+    color: #f2f2f2;
+    font-size: 25px;
+    padding: 8px 12px;
+    position: absolute;
+    bottom: 8px;
+    width: 100%;
+    text-align: center;
+}
+
+/* 編號文字 (1/3 等等) */
+.numbertext {
+    color: #f2f2f2;
+    font-size: 12px;
+    padding: 8px 12px;
+    position: absolute;
+    top: 0;
+}
+
+
+
+/* 淡入動畫 */
+.fade {
+    animation-name: fade;
+    animation-duration: 1.5s;
+}
+
+@keyframes fade {
+    from {
+        opacity: .4
+    }
+
+    to {
+        opacity: 1
+    }
+}
+
+/* 租借 */
+.t1 {
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #ebebeb;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    max-width: 1000px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: auto;
+    flex-wrap: wrap;
+}
+
+.t1 a {
+    font-size: 24px;
+    color: #ffffff;
+    text-decoration: none;
+    padding: 10px 20px;
+    margin: 5px;
+    border-radius: 5px;
+    background-color: hwb(201 0% 55%);
+    transition: background-color 0.3s ease;
+}
+
+.t1 a:hover {
+    background-color: #e1e1e1;
+}
+
+
+
+
+.t2 p {
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    justify-content: center;
+    font-size: 20px;
+}
+
+.t2 h1 {
+    text-align: center;
+    font-size: 60px;
+}
+
+
+
+/* 錄音室圖片庫 */
+div.gallery {
+    border: 1px solid #ccc;
+    width: 400px;
+    margin-left: 5%;
+    margin-bottom: 25%;
+
+}
+
+div.gallery:hover {
+    border: 1px solid #777;
+}
+
+div.gallery img {
+    width: 100%;
+    height: 300px;
+
+}
+
+div.desc {
+    padding: 15px;
+    text-align: center;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+.responsive {
+    padding: 0 6px;
+    float: left;
+    width: 24.99999%;
+}
+
+@media only screen and (max-width: 1700px) {
+    .responsive {
+        width: 49.99999%;
+        margin: 6px 0;
+    }
+}
+
+@media only screen and (max-width: 1000px) {
+    .responsive {
+        width: 100%;
+    }
+}
+
+.clearfix:after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+
+
+/* Set a specific color for each brand */
+
+/* Facebook */
+.fa-facebook {
+    background: #3B5998;
+    color: white;
+}
+
+/* Twitter */
+.fa-twitter {
+    background: #55ACEE;
+    color: white;
+}
+
+.fa {
+    padding: 20px;
+    height: 30px;
+    font-size: 30px;
+    width: 30px;
+    text-align: center;
+    text-decoration: none;
+    border-radius: 50%;
+}
+
+/* 下拉選單 */
+.l1 {
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 60px;
+}
+
+.l1 h1 {
+    margin: 20px;
+
+}
+
+.accordion {
+    background-color: rgb(208, 80, 0);
+    color: #ffffff;
+    cursor: pointer;
+    padding: 18px;
+    width: 100%;
+    border: none;
+    text-align: left;
+    outline: none;
+    font-size: 15px;
+    transition: 0.4s;
+}
+
+.active,
+.accordion:hover {
+    background-color: rgb(18, 53, 57);
+}
+
+.panel {
+    padding: 0 18px;
+    display: none;
+    background-color: rgb(255, 255, 255);
+    overflow: hidden;
+}
+
+
+.k2 {
+    display: flex;
+    /* 使用Flexbox布局 */
+    align-items: center;
+    /* 在交叉轴上垂直居中对齐 */
+}
+
+.kk2 {
+    width: 50%;
+    /* 设置列的宽度为50% */
+    box-sizing: border-box;
+    /* 让宽度包括边框和填充 */
+    float: left;
+    /* 浮动元素以便并排显示 */
+    padding: 20px;
+    /* 添加填充 */
+}
+
+
+
+@media screen and (max-width: 768px) {
+    .kk2 {
+        width: 100%;
+        /* 在小屏幕下，设置列的宽度为100% */
+        float: none;
+        /* 取消浮动 */
+    }
+}
+
+
+
+
+/* 將一行設置為彈性盒子，並讓其內容可以換行 */
+/* .row 保持不變 */
+
+.row {
+    display: flex;
+    flex-wrap: wrap;
+    margin: 0 -4px;
+    /* 調整 margin 以修復 flexbox 在某些情況下的排版問題 */
+}
+
+/* .column 的 CSS */
+.column {
+    flex: 25%;
+    max-width: 25%;
+    padding: 0 4px;
+    /* 使用 margin 而非 padding 以調整列之間的間距 */
+    box-sizing: border-box;
+    text-align: center;
+    /* 將文字置中 */
+}
+
+/* .column img 保持不變 */
+
+.column img {
+    width: 100%;
+    height: auto;
+    margin-bottom: 20px;
+}
+
+/* .column button 和 .column button:hover 保持不變 */
+
+.column a {
+    color: #ffffff;
+    background-color: hwb(201 0% 55%);
+    width: auto;
+    padding: 10px 20px;
+    margin-bottom: 10px;
+    font-size: 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    text-decoration: none;
+}
+
+
+.column a:hover {
+    background-color: #7f7f7f;
+    text-decoration: none;
+}
+
+/* 響應式設置 */
+@media screen and (max-width: 800px) {
+    .column {
+        flex: 50%;
+        max-width: 50%;
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .column {
+        flex: 100%;
+        max-width: 100%;
+    }
+}
+
+
+
+
+/* --------------------------------------------------------------------------------------------------- */
+/* 將一行設置為彈性盒子，並讓其內容可以換行 */
+.row {
+    display: flex;
+    flex-wrap: wrap;
+    padding: 0 4px;
+}
+
+/* 創建四個相等寬度的列，並排列在一起 */
+
+
+
+
+
+
+/* 響應式設置 - 在螢幕小於 800px 時讓兩列佔據一半寬度 */
+@media screen and (max-width: 800px) {
+    .column {
+        flex: 50%;
+        max-width: 50%;
+    }
+}
+
+/* 響應式設置 - 在螢幕小於 600px 時將兩列疊加在一起 */
+@media screen and (max-width: 600px) {
+    .column {
+        flex: 100%;
+        max-width: 100%;
+    }
+}
+
+/* 頂部按鈕 */
+#myBtn {
+    display: none;
+    /* Hidden by default */
+    position: fixed;
+    /* Fixed/sticky position */
+    bottom: 20px;
+    /* Place the button at the bottom of the page */
+    right: 30px;
+    /* Place the button 30px from the right */
+    z-index: 99;
+    /* Make sure it does not overlap */
+    border: none;
+    /* Remove borders */
+    outline: none;
+    /* Remove outline */
+    background-color: red;
+    /* Set a background color */
+    color: white;
+    /* Text color */
+    cursor: pointer;
+    /* Add a mouse pointer on hover */
+    padding: 15px;
+    /* Some padding */
+    border-radius: 10px;
+    /* Rounded corners */
+    font-size: 18px;
+    /* Increase font size */
+}
+
+#myBtn:hover {
+    background-color: #555;
+    /* Add a dark-grey background on hover */
+}
+
+/* icon */
+.icon-container {
+    position: fixed;
+    top: 50%;
+    right: 10px;
+    transform: translateY(-50%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.icon-container .fa {
+    padding: 10px;
+    /* 調整圖標的 padding */
+    font-size: 30px;
+    height: 50px;
+    width: 50px;
+    /* 保持適當的圖標寬度 */
+    text-align: center;
+    text-decoration: none;
+    margin: 5px 2px;
+    border-radius: 50%;
+    /* 如果需要，保留圖標的圓角設置 */
+}
+
+
+
+.fa:hover {
+    opacity: 0.7;
+}
+
+.fa-instagram {
+    background: #125688;
+    color: white;
+}
+
+.fa-pinterest {
+    background: #cb2027;
+    color: white;
+}
+
+.fa-facebook {
+    background: #3B5998;
+    color: white;
+}
+
+body {
+    font-family: "Noto Serif TC", serif;
+    font-weight: 400;
+    font-style: normal;
+}
